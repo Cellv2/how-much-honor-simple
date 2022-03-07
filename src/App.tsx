@@ -1,30 +1,15 @@
 import React from "react";
 import { Column, useTable } from "react-table";
 import "./App.css";
-import { data } from "./data/items.data";
+import { tableColumns } from "./constants/table.constants";
+import { itemCostInfo } from "./data/items.data";
 import logo from "./logo.svg";
 import { lookupSlotDisplayName } from "./utils/data.utils";
 
 const App = () => {
-    const columns = React.useMemo(
-        () => [
-            {
-                Header: "Item Slot",
-                accessor: "slot",
-            },
-            {
-                Header: "Honour",
-                accessor: "honorAmount",
-            },
-            {
-                Header: "Marks",
-                accessor: "marks",
-            },
-        ],
-        []
-    );
+    const columns = React.useMemo(() => tableColumns, []);
 
-    const tableData = data.map((item) => {
+    const tableData = itemCostInfo.map((item) => {
         const { honorAmount, slot, marksAmount, marksType } = item;
         const marks = `${marksAmount ?? ""} ${marksType ?? ""}`;
         const displayName = lookupSlotDisplayName(slot);
