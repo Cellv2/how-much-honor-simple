@@ -28,7 +28,7 @@ export type ItemSlot = typeof itemSlots[number];
 export const markTypes = ["AB", "AV", "EOTS", "WSG"] as const;
 export type MarkTypes = typeof markTypes[number];
 
-export type Data = {
+export type ItemCost = {
     slot: ItemSlot;
     honorAmount: number;
     marksAmount?: number;

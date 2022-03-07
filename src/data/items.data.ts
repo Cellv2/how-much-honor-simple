@@ -1,6 +1,6 @@
-import { Data, ItemSlot } from "../types/data.types";
+import { ItemCost, ItemSlot } from "../types/data.types";
 
-export const data: Data[] = [
+export const itemCostInfo: ItemCost[] = [
     {
         honorAmount: 10328,
         slot: "head",
@@ -21,7 +21,7 @@ export const data: Data[] = [
         honorAmount: 1,
         slot: "bracers",
         marksAmount: 1,
-        marksType: "WSG"
+        marksType: "WSG",
     },
     {
         honorAmount: 6311,
