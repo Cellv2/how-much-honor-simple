@@ -133,7 +133,19 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                     {rows.map((row, i) => {
                         prepareRow(row);
                         return (
-                            <tr {...row.getRowProps()}>
+                            <tr
+                                {...row.getRowProps()}
+                                style={
+                                    //@ts-expect-error
+                                    row.isSelected
+                                        ? { backgroundColor: "red" }
+                                        : { backgroundColor: "" }
+                                }
+                                onClick={() => {
+                                    //@ts-expect-error
+                                    row.toggleRowSelected();
+                                }}
+                            >
                                 {row.cells.map((cell) => {
                                     return (
                                         <td {...cell.getCellProps()}>
