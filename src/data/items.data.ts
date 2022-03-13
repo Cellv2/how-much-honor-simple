@@ -87,7 +87,7 @@ export const slotDisplayNames: { slot: ItemSlot; displayName: string }[] = [
         slot: "shoulder",
     },
     {
-        displayName: "Leggings",
+        displayName: "Legs",
         slot: "legs",
     },
     {
