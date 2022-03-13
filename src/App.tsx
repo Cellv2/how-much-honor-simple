@@ -13,13 +13,19 @@ const App = () => {
         const { honorAmount, slot, marksAmount, marksType } = item;
         const marks = `${marksAmount ?? ""} ${marksType ?? ""}`;
         const displayName = lookupSlotDisplayName(slot);
-        return { honorAmount, slot: displayName, marks };
+        return {
+            honorAmount,
+            slot: displayName,
+            marks,
+            marksAmount,
+            marksType,
+        };
     });
 
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                {/* <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
                 </p>
@@ -30,7 +36,7 @@ const App = () => {
                     rel="noopener noreferrer"
                 >
                     Learn React
-                </a>
+                </a> */}
                 <Table columns={columns} data={tableData} />
             </header>
         </div>
@@ -153,6 +159,40 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                         null,
                         2
                     )}
+                    {`\ntotal honour: ${selectedFlatRows
+                        .map((row: any) => row.original.honorAmount)
+                        .reduce(
+                            (prev: number, curr: number) => prev + curr,
+                            0
+                        )}`}
+                    {`\ntotal AB marks: ${selectedFlatRows
+                        .filter((row: any) => row.original.marksType === "AB")
+                        .map((row: any) => row.original.marksAmount)
+                        .reduce(
+                            (prev: number, curr: number) => prev + curr,
+                            0
+                        )}`}
+                    {`\ntotal AV marks: ${selectedFlatRows
+                        .filter((row: any) => row.original.marksType === "AV")
+                        .map((row: any) => row.original.marksAmount)
+                        .reduce(
+                            (prev: number, curr: number) => prev + curr,
+                            0
+                        )}`}
+                    {`\ntotal EOTS marks: ${selectedFlatRows
+                        .filter((row: any) => row.original.marksType === "EOTS")
+                        .map((row: any) => row.original.marksAmount)
+                        .reduce(
+                            (prev: number, curr: number) => prev + curr,
+                            0
+                        )}`}
+                    {`\ntotal WSG marks: ${selectedFlatRows
+                        .filter((row: any) => row.original.marksType === "WSG")
+                        .map((row: any) => row.original.marksAmount)
+                        .reduce(
+                            (prev: number, curr: number) => prev + curr,
+                            0
+                        )}`}
                 </code>
             </pre>
         </>
