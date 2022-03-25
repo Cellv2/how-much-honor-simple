@@ -142,7 +142,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                 </BRow>
                 <BRow>
                     <BCol sm={3}>
-                        {abMarksRequired}{" "}
+                        <span>{abMarksRequired}</span>
                         <BImage
                             src={bgMarksImages.ab.src}
                             alt={bgMarksImages.ab.alt}
@@ -152,7 +152,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                         />
                     </BCol>
                     <BCol sm={3}>
-                        {avMarksRequired}{" "}
+                        <span>{avMarksRequired}</span>
                         <BImage
                             src={bgMarksImages.av.src}
                             alt={bgMarksImages.av.alt}
@@ -162,7 +162,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                         />
                     </BCol>
                     <BCol sm={3}>
-                        {eotsMarksRequired}{" "}
+                        <span>{eotsMarksRequired}</span>
                         <BImage
                             src={bgMarksImages.eots.src}
                             alt={bgMarksImages.eots.alt}
@@ -172,7 +172,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                         />
                     </BCol>
                     <BCol sm={3}>
-                        {wsgMarksRequired}{" "}
+                        <span>{wsgMarksRequired}</span>
                         <BImage
                             src={bgMarksImages.wsg.src}
                             alt={bgMarksImages.wsg.alt}
