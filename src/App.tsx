@@ -128,7 +128,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
         <>
             <BContainer fluid className="mt-2 mb-1 text-center">
                 <BRow>
-                    <BCol className="d-flex align-items-center rowMaxHeight">
+                    <BCol className="d-flex align-items-center mb-1 rowMaxHeight">
                         <div className="w-100 text-end me-2">
                             {honorRequired}
                         </div>
@@ -146,7 +146,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                 <BRow>
                     <BCol
                         sm={3}
-                        className="d-flex align-items-center rowMaxHeight"
+                        className="d-flex align-items-center mb-1 rowMaxHeight"
                     >
                         <div className="w-100 text-end me-2">
                             {abMarksRequired}
@@ -163,7 +163,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                     </BCol>
                     <BCol
                         sm={3}
-                        className="d-flex align-items-center rowMaxHeight"
+                        className="d-flex align-items-center mb-1 rowMaxHeight"
                     >
                         <div className="w-100 text-end me-2">
                             {avMarksRequired}
@@ -180,7 +180,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                     </BCol>
                     <BCol
                         sm={3}
-                        className="d-flex align-items-center rowMaxHeight"
+                        className="d-flex align-items-center mb-1 rowMaxHeight"
                     >
                         <div className="w-100 text-end me-2">
                             {eotsMarksRequired}
@@ -197,7 +197,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                     </BCol>
                     <BCol
                         sm={3}
-                        className="d-flex align-items-center rowMaxHeight"
+                        className="d-flex align-items-center mb-1 rowMaxHeight"
                     >
                         <div className="w-100 text-end me-2">
                             {wsgMarksRequired}
