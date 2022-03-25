@@ -6,6 +6,7 @@ import BRow from "react-bootstrap/Row";
 import BTable from "react-bootstrap/Table";
 import { Column, useRowSelect, useTable } from "react-table";
 import { tableColumns } from "./constants/table.constants";
+import "./css/app.css";
 import { itemCostInfo } from "./data/items.data";
 import { bgMarksImages, miscImages } from "./images/images";
 import { lookupSlotDisplayName } from "./utils/data.utils";
@@ -127,57 +128,89 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
         <>
             <BContainer fluid className="mt-2 mb-1 text-center">
                 <BRow>
-                    <BCol>
-                        <span>{honorRequired}</span>
-                        <BImage
-                            src={miscImages.honor.src}
-                            alt={miscImages.honor.alt}
-                            fluid
-                            rounded
-                            className="h-75 ms-4"
-                        />
+                    <BCol className="d-flex align-items-center rowMaxHeight">
+                        <div className="w-100 text-end me-2">
+                            {honorRequired}
+                        </div>
+                        <div className="h-100 w-100 text-start">
+                            <BImage
+                                src={miscImages.honor.src}
+                                alt={miscImages.honor.alt}
+                                fluid
+                                rounded
+                                className="h-100 ms-2"
+                            />
+                        </div>
                     </BCol>
                 </BRow>
                 <BRow>
-                    <BCol sm={3}>
-                        <span>{abMarksRequired}</span>
-                        <BImage
-                            src={bgMarksImages.ab.src}
-                            alt={bgMarksImages.ab.alt}
-                            fluid
-                            rounded
-                            className="h-75 ms-4"
-                        />
+                    <BCol
+                        sm={3}
+                        className="d-flex align-items-center rowMaxHeight"
+                    >
+                        <div className="w-100 text-end me-2">
+                            {abMarksRequired}
+                        </div>
+                        <div className="h-100 w-100 text-start">
+                            <BImage
+                                src={bgMarksImages.ab.src}
+                                alt={bgMarksImages.ab.alt}
+                                fluid
+                                rounded
+                                className="h-100 ms-2"
+                            />
+                        </div>
                     </BCol>
-                    <BCol sm={3}>
-                        <span>{avMarksRequired}</span>
-                        <BImage
-                            src={bgMarksImages.av.src}
-                            alt={bgMarksImages.av.alt}
-                            fluid
-                            rounded
-                            className="h-75 ms-4"
-                        />
+                    <BCol
+                        sm={3}
+                        className="d-flex align-items-center rowMaxHeight"
+                    >
+                        <div className="w-100 text-end me-2">
+                            {avMarksRequired}
+                        </div>
+                        <div className="h-100 w-100 text-start">
+                            <BImage
+                                src={bgMarksImages.av.src}
+                                alt={bgMarksImages.av.alt}
+                                fluid
+                                rounded
+                                className="h-100 ms-2"
+                            />
+                        </div>
                     </BCol>
-                    <BCol sm={3}>
-                        <span>{eotsMarksRequired}</span>
-                        <BImage
-                            src={bgMarksImages.eots.src}
-                            alt={bgMarksImages.eots.alt}
-                            fluid
-                            rounded
-                            className="h-75 ms-4"
-                        />
+                    <BCol
+                        sm={3}
+                        className="d-flex align-items-center rowMaxHeight"
+                    >
+                        <div className="w-100 text-end me-2">
+                            {eotsMarksRequired}
+                        </div>
+                        <div className="h-100 w-100 text-start">
+                            <BImage
+                                src={bgMarksImages.eots.src}
+                                alt={bgMarksImages.eots.alt}
+                                fluid
+                                rounded
+                                className="h-100 ms-2"
+                            />
+                        </div>
                     </BCol>
-                    <BCol sm={3}>
-                        <span>{wsgMarksRequired}</span>
-                        <BImage
-                            src={bgMarksImages.wsg.src}
-                            alt={bgMarksImages.wsg.alt}
-                            fluid
-                            rounded
-                            className="h-75 ms-4"
-                        />
+                    <BCol
+                        sm={3}
+                        className="d-flex align-items-center rowMaxHeight"
+                    >
+                        <div className="w-100 text-end me-2">
+                            {wsgMarksRequired}
+                        </div>
+                        <div className="h-100 w-100 text-start">
+                            <BImage
+                                src={bgMarksImages.wsg.src}
+                                alt={bgMarksImages.wsg.alt}
+                                fluid
+                                rounded
+                                className="h-100 ms-2"
+                            />
+                        </div>
                     </BCol>
                 </BRow>
             </BContainer>
