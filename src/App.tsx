@@ -4,6 +4,10 @@ import { tableColumns } from "./constants/table.constants";
 import { itemCostInfo } from "./data/items.data";
 import { lookupSlotDisplayName } from "./utils/data.utils";
 import BTable from "react-bootstrap/Table";
+import BContainer from "react-bootstrap/Container";
+import BRow from "react-bootstrap/Row";
+import BCol from "react-bootstrap/Col";
+import { bgMarksImages, miscImages } from "./images/images";
 
 const App = () => {
     const columns = React.useMemo(() => tableColumns, []);
@@ -96,8 +100,73 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
         }
     );
 
+    const honorRequired = selectedFlatRows
+        .map((row: any) => row.original.honorAmount)
+        .reduce((prev: number, curr: number) => prev + curr, 0);
+
+    const abMarksRequired = selectedFlatRows
+        .filter((row: any) => row.original.marksType === "AB")
+        .map((row: any) => row.original.marksAmount)
+        .reduce((prev: number, curr: number) => prev + curr, 0);
+
+    const avMarksRequired = selectedFlatRows
+        .filter((row: any) => row.original.marksType === "AV")
+        .map((row: any) => row.original.marksAmount)
+        .reduce((prev: number, curr: number) => prev + curr, 0);
+
+    const eotsMarksRequired = selectedFlatRows
+        .filter((row: any) => row.original.marksType === "EOTS")
+        .map((row: any) => row.original.marksAmount)
+        .reduce((prev: number, curr: number) => prev + curr, 0);
+
+    const wsgMarksRequired = selectedFlatRows
+        .filter((row: any) => row.original.marksType === "WSG")
+        .map((row: any) => row.original.marksAmount)
+        .reduce((prev: number, curr: number) => prev + curr, 0);
+
     return (
         <>
+            <BContainer fluid className="text-center">
+                <BRow>
+                    <BCol>
+                        {honorRequired}{" "}
+                        <img
+                            src={miscImages.honor.src}
+                            alt={miscImages.honor.alt}
+                        />
+                    </BCol>
+                </BRow>
+                <BRow>
+                    <BCol sm={3}>
+                        {abMarksRequired}{" "}
+                        <img
+                            src={bgMarksImages.ab.src}
+                            alt={bgMarksImages.ab.alt}
+                        />
+                    </BCol>
+                    <BCol sm={3}>
+                        {avMarksRequired}{" "}
+                        <img
+                            src={bgMarksImages.av.src}
+                            alt={bgMarksImages.av.alt}
+                        />
+                    </BCol>
+                    <BCol sm={3}>
+                        {eotsMarksRequired}{" "}
+                        <img
+                            src={bgMarksImages.eots.src}
+                            alt={bgMarksImages.eots.alt}
+                        />
+                    </BCol>
+                    <BCol sm={3}>
+                        {wsgMarksRequired}{" "}
+                        <img
+                            src={bgMarksImages.wsg.src}
+                            alt={bgMarksImages.wsg.alt}
+                        />
+                    </BCol>
+                </BRow>
+            </BContainer>
             <BTable striped bordered hover {...getTableProps()}>
                 <thead>
                     {headerGroups.map((headerGroup) => (
@@ -139,55 +208,6 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                     })}
                 </tbody>
             </BTable>
-            <p>Selected Rows: {Object.keys(selectedRowIds).length}</p>
-            <pre>
-                <code>
-                    {JSON.stringify(
-                        {
-                            selectedRowIds: selectedRowIds,
-                            "selectedFlatRows[].original": selectedFlatRows.map(
-                                (d: any) => d.original
-                            ),
-                        },
-                        null,
-                        2
-                    )}
-                    {`\ntotal honour: ${selectedFlatRows
-                        .map((row: any) => row.original.honorAmount)
-                        .reduce(
-                            (prev: number, curr: number) => prev + curr,
-                            0
-                        )}`}
-                    {`\ntotal AB marks: ${selectedFlatRows
-                        .filter((row: any) => row.original.marksType === "AB")
-                        .map((row: any) => row.original.marksAmount)
-                        .reduce(
-                            (prev: number, curr: number) => prev + curr,
-                            0
-                        )}`}
-                    {`\ntotal AV marks: ${selectedFlatRows
-                        .filter((row: any) => row.original.marksType === "AV")
-                        .map((row: any) => row.original.marksAmount)
-                        .reduce(
-                            (prev: number, curr: number) => prev + curr,
-                            0
-                        )}`}
-                    {`\ntotal EOTS marks: ${selectedFlatRows
-                        .filter((row: any) => row.original.marksType === "EOTS")
-                        .map((row: any) => row.original.marksAmount)
-                        .reduce(
-                            (prev: number, curr: number) => prev + curr,
-                            0
-                        )}`}
-                    {`\ntotal WSG marks: ${selectedFlatRows
-                        .filter((row: any) => row.original.marksType === "WSG")
-                        .map((row: any) => row.original.marksAmount)
-                        .reduce(
-                            (prev: number, curr: number) => prev + curr,
-                            0
-                        )}`}
-                </code>
-            </pre>
         </>
     );
 };
