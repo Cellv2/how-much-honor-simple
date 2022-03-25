@@ -6,11 +6,17 @@ export const itemCostInfo: ItemCost[] = [
         slot: "head",
     },
     {
+        honorAmount: 15300,
+        slot: "neck",
+        marksAmount: 5,
+        marksType: "EOTS",
+    },
+    {
         honorAmount: 11250,
         slot: "shoulder",
     },
     {
-        honorAmount: 0,
+        honorAmount: 2949,
         slot: "back",
     },
     {
@@ -18,9 +24,9 @@ export const itemCostInfo: ItemCost[] = [
         slot: "chest",
     },
     {
-        honorAmount: 1,
+        honorAmount: 11794,
         slot: "bracers",
-        marksAmount: 1,
+        marksAmount: 10,
         marksType: "WSG",
     },
     {
@@ -28,8 +34,26 @@ export const itemCostInfo: ItemCost[] = [
         slot: "gloves",
     },
     {
+        honorAmount: 17850,
+        slot: "belt",
+        marksAmount: 20,
+        marksType: "AB",
+    },
+    {
         honorAmount: 10328,
         slot: "legs",
+    },
+    {
+        honorAmount: 17850,
+        slot: "boots",
+        marksAmount: 20,
+        marksType: "EOTS",
+    },
+    {
+        honorAmount: 15300,
+        slot: "ring",
+        marksAmount: 5,
+        marksType: "AV",
     },
     {
         honorAmount: 19125,
@@ -56,16 +80,12 @@ export const itemCostInfo: ItemCost[] = [
         slot: "offhand-spell",
     },
     {
-        honorAmount: 5897,
-        slot: "thrown",
-    },
-    {
         honorAmount: 15000,
         slot: "shield",
     },
     {
         honorAmount: 5897,
-        slot: "wand",
+        slot: "wand", // this is the same as thrown
     },
     {
         honorAmount: 2000,
@@ -74,36 +94,62 @@ export const itemCostInfo: ItemCost[] = [
     {
         honorAmount: 30000,
         slot: "trinket-battlemasters",
+        marksAmount: 20,
+        marksType: "AV",
     },
 ];
 
 export const slotDisplayNames: { slot: ItemSlot; displayName: string }[] = [
     {
-        displayName: "Gloves",
-        slot: "gloves",
+        displayName: "Helm",
+        slot: "head",
+    },
+    {
+        displayName: "Neck",
+        slot: "neck",
     },
     {
         displayName: "Shoulders",
         slot: "shoulder",
     },
     {
-        displayName: "Legs",
-        slot: "legs",
-    },
-    {
-        displayName: "Helm",
-        slot: "head",
+        displayName: "Cloak",
+        slot: "back",
     },
     {
         displayName: "Chest",
         slot: "chest",
     },
     {
+        displayName: "Bracers",
+        slot: "bracers",
+    },
+    {
+        displayName: "Gloves",
+        slot: "gloves",
+    },
+    {
+        displayName: "Belt",
+        slot: "belt",
+    },
+    {
+        displayName: "Legs",
+        slot: "legs",
+    },
+    {
+        displayName: "Boots",
+        slot: "boots",
+    },
+    {
+        displayName: "Ring",
+        slot: "ring",
+    },
+    {
         displayName: "Two-Handed Weapon",
         slot: "2h",
     },
     {
-        displayName: "Ranged",
+        displayName: "Ranged (Crossbow)",
         slot: "ranged",
     },
     {
@@ -131,7 +177,7 @@ export const slotDisplayNames: { slot: ItemSlot; displayName: string }[] = [
         slot: "shield",
     },
     {
-        displayName: "Wand",
+        displayName: "Thrown / Wand",
         slot: "wand",
     },
     {
