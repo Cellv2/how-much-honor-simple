@@ -1,13 +1,14 @@
 import React from "react";
+import BCol from "react-bootstrap/Col";
+import BContainer from "react-bootstrap/Container";
+import BImage from "react-bootstrap/Image";
+import BRow from "react-bootstrap/Row";
+import BTable from "react-bootstrap/Table";
 import { Column, useRowSelect, useTable } from "react-table";
 import { tableColumns } from "./constants/table.constants";
 import { itemCostInfo } from "./data/items.data";
-import { lookupSlotDisplayName } from "./utils/data.utils";
-import BTable from "react-bootstrap/Table";
-import BContainer from "react-bootstrap/Container";
-import BRow from "react-bootstrap/Row";
-import BCol from "react-bootstrap/Col";
 import { bgMarksImages, miscImages } from "./images/images";
+import { lookupSlotDisplayName } from "./utils/data.utils";
 
 const App = () => {
     const columns = React.useMemo(() => tableColumns, []);
@@ -126,43 +127,58 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
 
     return (
         <>
-            <BContainer fluid className="text-center">
+            <BContainer fluid className="mt-2 mb-1 text-center">
                 <BRow>
                     <BCol>
-                        {honorRequired}{" "}
-                        <img
+                        <span>{honorRequired}</span>
+                        <BImage
                             src={miscImages.honor.src}
                             alt={miscImages.honor.alt}
+                            fluid
+                            rounded
+                            className="h-75 ms-4"
                         />
                     </BCol>
                 </BRow>
                 <BRow>
                     <BCol sm={3}>
                         {abMarksRequired}{" "}
-                        <img
+                        <BImage
                             src={bgMarksImages.ab.src}
                             alt={bgMarksImages.ab.alt}
+                            fluid
+                            rounded
+                            className="h-75 ms-4"
                         />
                     </BCol>
                     <BCol sm={3}>
                         {avMarksRequired}{" "}
-                        <img
+                        <BImage
                             src={bgMarksImages.av.src}
                             alt={bgMarksImages.av.alt}
+                            fluid
+                            rounded
+                            className="h-75 ms-4"
                         />
                     </BCol>
                     <BCol sm={3}>
                         {eotsMarksRequired}{" "}
-                        <img
+                        <BImage
                             src={bgMarksImages.eots.src}
                             alt={bgMarksImages.eots.alt}
+                            fluid
+                            rounded
+                            className="h-75 ms-4"
                         />
                     </BCol>
                     <BCol sm={3}>
                         {wsgMarksRequired}{" "}
-                        <img
+                        <BImage
                             src={bgMarksImages.wsg.src}
                             alt={bgMarksImages.wsg.alt}
+                            fluid
+                            rounded
+                            className="h-75 ms-4"
                         />
                     </BCol>
                 </BRow>
