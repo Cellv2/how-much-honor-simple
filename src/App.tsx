@@ -1,10 +1,9 @@
 import React from "react";
 import { Column, useRowSelect, useTable } from "react-table";
-import "./App.css";
 import { tableColumns } from "./constants/table.constants";
 import { itemCostInfo } from "./data/items.data";
-import logo from "./logo.svg";
 import { lookupSlotDisplayName } from "./utils/data.utils";
+import BTable from "react-bootstrap/Table";
 
 const App = () => {
     const columns = React.useMemo(() => tableColumns, []);
@@ -22,25 +21,7 @@ const App = () => {
         };
     });
 
-    return (
-        <div className="App">
-            <header className="App-header">
-                {/* <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a> */}
-                <Table columns={columns} data={tableData} />
-            </header>
-        </div>
-    );
+    return <Table columns={columns} data={tableData} />;
 };
 
 const IndeterminateCheckbox = React.forwardRef(
@@ -117,7 +98,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
 
     return (
         <>
-            <table {...getTableProps()}>
+            <BTable striped bordered hover {...getTableProps()}>
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
@@ -138,7 +119,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                                 style={
                                     //@ts-expect-error
                                     row.isSelected
-                                        ? { backgroundColor: "red" }
+                                        ? { backgroundColor: "lightblue" }
                                         : { backgroundColor: "" }
                                 }
                                 onClick={() => {
@@ -157,7 +138,7 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
                         );
                     })}
                 </tbody>
-            </table>
+            </BTable>
             <p>Selected Rows: {Object.keys(selectedRowIds).length}</p>
             <pre>
                 <code>
