@@ -62,8 +62,6 @@ const Table = ({ columns, data }: { columns: Column<{}>[]; data: {}[] }) => {
         prepareRow,
         //@ts-expect-error
         selectedFlatRows,
-        //@ts-expect-error
-        state: { selectedRowIds },
     } = useTable(
         {
             columns,
